@@ -1,0 +1,266 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    height: auto;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #FAFAFA;
+    font-family: 'Commissioner', sans-serif;
+    position: relative;
+}
+
+/* Utilities */
+h1 {
+    font-size: 28px;
+    font-weight: 700;
+}
+
+h2 {
+    font-size: 22px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 20px;
+    font-weight: 700;
+}
+
+h4 {
+    font-size: 18px;
+    font-weight: 500;
+    color: #3CB4AB;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+ul {
+    list-style: none;
+}
+
+p {
+    color: #7C7C7C;
+}
+
+.card {
+    background: #fff;
+    padding: 45px 40px;
+    border-radius: 10px;
+    border: 2px solid #F4F4F4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.btn {
+    background: #3CB4AB;
+    color: #fff;
+    font-weight: 500;
+    border-radius: 30px;
+    cursor: pointer;
+    transition: background 0.3s ease-in;
+}
+
+.btn:hover {
+    background: #157A74;
+}
+
+.btn-big {
+    padding: 15px 40px;
+}
+
+.btn-small {
+    padding: 15px 30px;
+    font-size: 14px;
+}
+
+/* Header */
+header {
+    background: url('images/image-hero-desktop.jpg') no-repeat center center;
+    background-size: 100% 100%;
+    height: 45vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    position: relative;
+}
+
+nav:before {
+    position: absolute;
+    content: '';
+    background: rgba(0, 0, 0, 0.2);
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    top: 0;
+    left: 0;
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 76%;
+    margin-top: 50px;
+    z-index: 5;
+}
+
+#navbar {
+    display: flex;
+}
+
+#navbar li {
+    margin-left: 30px;
+    font-size: 14px;
+}
+
+/* Main Container */
+main {
+    width: 730px;
+    align-self: center;
+    position: absolute;
+    top: 35vh;
+    z-index: 5;
+}
+
+/* About Section */
+#about {
+    padding-top: 55px;
+}
+
+#about > img {
+    position: absolute;
+    top: -30px;
+}
+
+#about h1 {
+    margin-bottom: 15px;
+}
+
+#about > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 40px;
+}
+
+#bookmark-container {
+    position: relative;
+    background: #F4F4F4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 20px 15px 60px ;
+    border-radius: 30px;
+    cursor: pointer;
+}
+
+#bookmark-icon {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    background: url('images/icon-bookmark.svg') center center;
+    background-size: 100% 100%;
+    left: 0;
+}
+
+#bookmark-container p {
+    font-weight: 700;
+}
+
+#bookmark-container.marked {
+    background: #F4F8F9;
+}
+
+#bookmark-container.marked p {
+    color: #157A74;
+}
+
+#bookmark-container.marked > #bookmark-icon {
+    background: url('images/icon-bookmark-active.svg') center center;
+    background-size: 100% 100%;
+}
+
+/* Progress Section */
+#progress-numbers {
+    display: flex;
+    width: 100%;
+    justify-content: flex-start;
+    margin-bottom: 45px;
+}
+
+#progress-numbers li {
+    width: 33.33%;
+    border-left: solid 1px #7c7c7c69;
+    text-align: center;
+}
+
+#progress-numbers li:first-child {
+    border: none;
+}
+
+#progress-bar {
+    width: 100%;
+    height: 15px;
+    border-radius: 15px;
+    background-color: #f4f4f4;
+}
+
+#progress-status {
+    width: 90%;
+    height: 100%;
+    border-radius: inherit;
+    background-color: #3CB4AA;
+}
+
+/* Get Started Section */
+#get-started {
+    display: flex;
+    flex-direction: column;
+}
+
+#get-started h2 {
+    align-self: flex-start;
+    margin-bottom: 30px;
+}
+
+#get-started p {
+    line-height: 30px;
+    margin-bottom: 30px;
+}
+
+#options .card > div {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#options .card p {
+    margin-top: 30px;
+}
+
+#options .card h1 {
+    display: flex;
+    align-items: center;
+}
+
+#options .card span {
+    font-size: 16px;
+    color: #7C7C7C;
+    font-weight: 500;
+    margin-left: 5px;
+}
+
+#options .card:last-child {
+    margin-bottom: 0;
+}
