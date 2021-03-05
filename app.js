@@ -1,6 +1,12 @@
 const bookmarkEl = document.getElementById('bookmark-container');
 const radioBtnEls = document.querySelectorAll('input[type=radio]');
-console.log(radioBtnEls);
+const backProjectBtnEl = document.getElementById('back-project-btn');
+const closeBtnMdlEl = document.getElementById('close-modal-btn');
+const selectRwdBtnEls = document.querySelectorAll('#get-started .btn');
+const pledgeAmountInEl = document.querySelectorAll('.accordion input');
+console.log(pledgeAmountInEl);
+
+// Event Handler Functions
 
 const bookmarkClickHandler = event => {
     bookmarkEl.classList.toggle('marked');
@@ -23,8 +29,49 @@ const radioBtnClickHandler = () => {
     }
 }
 
+const backProjectClickHandler = () => {
+    document.getElementById('overlay').classList.add('show');
+    document.querySelector('.modal').classList.add('show');
+}
+
+const closeBtnMdlHandler = () => {
+    document.getElementById('overlay').classList.remove('show');
+    document.querySelector('.modal').classList.remove('show');
+}
+
+const selectRewardBtnHandler = event => {
+    backProjectClickHandler();
+    togglePledge(event.currentTarget)
+}
+
+// Helper Functions
+
+const togglePledge = element => {
+    const idx = getIndexOf(element);
+    radioBtnEls.item(idx + 1).click();
+}
+
+const getIndexOf = element => {
+    let i = 0;
+    for (const el of selectRwdBtnEls) {
+        if (el == element) {
+            return i;
+        }
+        i++;
+    }
+    return i;
+}
+
+// Add Event Listeners
 
 for (const el of radioBtnEls) {
     el.addEventListener('click', radioBtnClickHandler);
 }
+
+for (const el of selectRwdBtnEls) {
+    el.addEventListener('click', selectRewardBtnHandler);
+}
+
 bookmarkEl.addEventListener('click', bookmarkClickHandler);
+backProjectBtnEl.addEventListener('click', backProjectClickHandler);
+closeBtnMdlEl.addEventListener('click', closeBtnMdlHandler);

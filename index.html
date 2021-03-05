@@ -33,7 +33,7 @@
       <h1>Mastercraft Bamboo Monitor Riser</h1>
       <p>A beautiful & handcrafted monitor stand to reduce neck and eyestrain.</p>
       <div>
-        <div class="btn btn-big">Back this project</div>
+        <div class="btn btn-big" id="back-project-btn">Back this project</div>
         <div id="bookmark-container">
           <div id="bookmark-icon"></div>
           <p>Bookmark</p>
@@ -107,6 +107,7 @@
     </section>
   </main>
   <div class="modal card">
+    <img src="images/icon-close-modal.svg" alt="" id="close-modal-btn">
     <h2>Back this project</h2>
     <p>Want to support us in bringing Mastercraft Bamboo Monitor Riser out in the world?</p>
     <ul class="options">
@@ -153,7 +154,7 @@
           <p>Enter your pledge</p>
           <div class="pledge">
             <p>&dollar;</p>
-            <input type="number" placeholder="25">
+            <input type="number" placeholder="25" value="25">
           </div>
           <div class="btn btn-small">Continue</div>
         </div>
@@ -178,7 +179,7 @@
           <p>Enter your pledge</p>
           <div class="pledge">
             <p>&dollar;</p>
-            <input type="number" placeholder="75">
+            <input type="number" placeholder="75" value="75">
           </div>
           <div class="btn btn-small">Continue</div>
         </div>
@@ -203,14 +204,14 @@
           <p>Enter your pledge</p>
           <div class="pledge">
             <p>&dollar;</p>
-            <input type="number" placeholder="200">
+            <input type="number" placeholder="200" value="200">
           </div>
           <div class="btn btn-small">Continue</div>
         </div>
       </li>
     </ul>
   </div>
-  <div class="overlay"></div>
+  <div id="overlay"></div>
   
   <!-- About
   Discover
