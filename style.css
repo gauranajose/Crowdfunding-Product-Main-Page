@@ -5,7 +5,7 @@
 }
 
 body {
-    height: auto;
+    height: fit-content;
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -83,6 +83,14 @@ p {
     font-size: 14px;
 }
 
+.active {
+    border-color: #3CB4AB;
+}
+
+.show {
+    display: flex !important;
+}
+
 /* Header */
 header {
     background: url('images/image-hero-desktop.jpg') no-repeat center center;
@@ -127,9 +135,9 @@ nav {
 main {
     width: 730px;
     align-self: center;
-    position: absolute;
-    top: 35vh;
     z-index: 5;
+    position: relative;
+    transform: translateY(-10vh);
 }
 
 /* About Section */
@@ -238,29 +246,222 @@ main {
     margin-bottom: 30px;
 }
 
-#options .card > div {
+#get-started .options .card > div {
     display: flex;
     width: 100%;
     justify-content: space-between;
     align-items: center;
 }
 
-#options .card p {
+.options .card p {
     margin-top: 30px;
 }
 
-#options .card h1 {
+.options .card h1 {
     display: flex;
     align-items: center;
 }
 
-#options .card span {
+.options .card span {
     font-size: 16px;
     color: #7C7C7C;
     font-weight: 500;
     margin-left: 5px;
 }
 
-#options .card:last-child {
+.options .card:last-child {
     margin-bottom: 0;
+}
+
+/* Modal */
+.modal {
+    width: 730px;
+    align-self: center;
+    position: fixed;
+    top: 10vh;
+    z-index: 25;
+    height: 80vh;
+}
+
+.modal .options {
+    overflow-y: auto;
+}
+
+.modal .options .card {
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal > h2,
+.modal > p {
+    align-self: flex-start;
+}
+
+.modal > p {
+    padding: 20px 0;
+    font-size: 14px;
+}
+
+.modal .options .wrapper {
+    display: flex;
+    flex-direction: row;
+    padding: 0;
+    position: relative;
+    padding: 30px 20px;
+}
+
+.modal .options .wrapper .content {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal .options .wrapper .content > div {
+    display: flex;
+    position: relative;
+    align-items: flex-start;
+}
+
+.modal .options .wrapper .content > div h3 {
+    margin-right: 15px;
+}
+
+.modal .options .wrapper .content > div h3,
+.modal .options .wrapper .content > div h4 {
+    font-size: 18px;
+}
+
+.modal .options .wrapper .content > div h1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 18px;
+}
+
+.modal .options .wrapper .content p {
+    margin-top: 10px;
+    line-height: 30px;
+    font-size: 14px;
+}
+
+/* Modal Checkbox */
+.modal .options .wrapper .toggler {
+    position: absolute;
+    top: 33px;
+    width: 20px;
+    height: 20px;
+    opacity: 0;
+}
+
+.modal .options .wrapper .toggler:checked ~ .radio-container .radio-button {
+    background: #3CB4AA;
+}
+
+.radio-container {
+    align-self: flex-start;
+    background: #fff;
+    padding: 4px;
+    border-radius: 50%;
+    border: 1px solid #7c7c7c69;
+    margin-right: 20px;
+    margin-top: 3px;
+}
+
+.radio-button {
+    background: #fff;
+    padding: 5px;
+    border-radius: 50%;
+}
+
+/* Modal Scrollbar */
+/* width */
+.modal ::-webkit-scrollbar {
+    width: 7px;
+}
+
+/* Track */
+.modal ::-webkit-scrollbar-track {
+    border-radius: 20px;
+}
+
+.modal ::-webkit-scrollbar-track:hover {
+    background: #f4f4f4;
+}
+/* Handle */
+.modal ::-webkit-scrollbar-thumb {
+    background: #BCC0C4; 
+    border-radius: 10px;
+}
+
+/* Modal Accordion */
+
+.modal .options .card .accordion {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-end;
+    position: relative;
+    padding: 15px 20px;
+    border-top: 1px solid #F4F4F4;
+    display: none;
+}
+
+.modal .options .card .accordion p {
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.modal .options .card .accordion > p {
+    position: absolute;
+    left: 20px;
+}
+
+.accordion .pledge {
+    display: flex;
+    align-items: center;
+    padding: 15px 30px;
+    border: 1px solid #7c7c7c69;
+    border-radius: 30px;
+    margin-right: 15px;
+    cursor: pointer;
+}
+
+.accordion .pledge input {
+    height: fit-content;
+    width: 25px;
+    border: none;
+    text-align: center;
+    margin-left: 5px;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 700;
+    color: #000;
+}
+
+.accordion .pledge input::-webkit-outer-spin-button,
+.accordion .pledge input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.accordion .pledge input:focus {
+    outline: none;
+}
+
+.accordion .pledge p {
+    font-size: 14px;
+}
+
+.accordion .pledge input::placeholder {
+    color: #000;
+    font-family: 'Commissioner', sans-serif;
+    font-weight: 700;
+}
+
+/* Overlay */
+.overlay {
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    z-index: 20;
 }

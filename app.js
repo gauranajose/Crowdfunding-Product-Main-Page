@@ -1,5 +1,6 @@
 const bookmarkEl = document.getElementById('bookmark-container');
-console.log(bookmarkEl);
+const radioBtnEls = document.querySelectorAll('input[type=radio]');
+console.log(radioBtnEls);
 
 const bookmarkClickHandler = event => {
     bookmarkEl.classList.toggle('marked');
@@ -10,4 +11,20 @@ const bookmarkClickHandler = event => {
     }
 }
 
+const radioBtnClickHandler = () => {
+    for (const el of radioBtnEls) {
+        if (el.checked) {
+            el.parentElement.parentElement.classList.add('active');
+            el.parentElement.nextElementSibling.classList.add('show');
+        } else {
+            el.parentElement.parentElement.classList.remove('active');
+            el.parentElement.nextElementSibling.classList.remove('show');
+        }
+    }
+}
+
+
+for (const el of radioBtnEls) {
+    el.addEventListener('click', radioBtnClickHandler);
+}
 bookmarkEl.addEventListener('click', bookmarkClickHandler);
