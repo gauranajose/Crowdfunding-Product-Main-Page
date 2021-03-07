@@ -17,6 +17,8 @@
   </style>
 </head>
 <body>
+
+  <!-- Header -->
   <header>
     <nav>
       <img src="images/logo.svg" alt="" id="logo">
@@ -27,6 +29,8 @@
       </ul>
     </nav>
   </header>
+
+  <!-- Main -->
   <main>
     <section id="about" class="card">
       <img src="images/logo-mastercraft.svg" alt="">
@@ -43,15 +47,15 @@
     <section id="progress" class="card">
       <ul id="progress-numbers">
         <li>
-          <h1>&dollar;89,914</h1>
-          <p>of &dollar;100,000 backed</p>
+          <h1 id="current"></h1>
+          <p id="target"></p>
         </li>
         <li>
-          <h1>5,007</h1>
+          <h1 id="backers"></h1>
           <p>total backers</p>
         </li>
         <li>
-          <h1>56</h1>
+          <h1 id="days-left"></h1>
           <p>days left</p>
         </li>
       </ul>
@@ -106,6 +110,8 @@
         </ul>
     </section>
   </main>
+
+  <!-- Modal -->
   <div class="modal card">
     <img src="images/icon-close-modal.svg" alt="" id="close-modal-btn">
     <h2>Back this project</h2>
@@ -211,6 +217,17 @@
       </li>
     </ul>
   </div>
+
+  <!-- Modal Confirmation -->
+  <div class="conf card">
+    <img src="images/icon-check.svg" alt="">
+    <h3>Thanks for your support!</h3>
+    <p>Your pledge brings us one step closer to sharing Mastercraft Bamboo Monitor Riser worldwide. You will get
+      an email once our campaign is completed.</p>
+    <div class="btn btn-small">Got it!</div>
+  </div>
+
+  <!-- Overlay -->
   <div id="overlay"></div>
   
   <!-- About

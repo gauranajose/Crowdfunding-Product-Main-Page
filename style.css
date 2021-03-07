@@ -221,6 +221,7 @@ main {
     height: 15px;
     border-radius: 15px;
     background-color: #f4f4f4;
+    overflow-x: hidden;
 }
 
 #progress-status {
@@ -299,6 +300,7 @@ main {
     padding: 0;
     display: flex;
     flex-direction: column;
+    cursor: pointer;
 }
 
 .modal > h2,
@@ -463,6 +465,26 @@ main {
     color: #000;
     font-family: 'Commissioner', sans-serif;
     font-weight: 700;
+}
+
+/* Confirmation Modal */
+.conf {
+    width: 530px;
+    align-self: center;
+    position: fixed;
+    z-index: 25;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+}
+
+.conf img {
+    margin-bottom: 30px;
+}
+
+.conf p {
+    line-height: 30px;
+    margin: 15px 0;
 }
 
 /* Overlay */
