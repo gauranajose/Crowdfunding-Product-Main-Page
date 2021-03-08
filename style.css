@@ -515,6 +515,10 @@ main {
     display: none;
 }
 
+/* Attributtion */
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: #3CB4AA; }
+
 /* Media Queries */
 @media(max-width: 760px) {
     :root {
