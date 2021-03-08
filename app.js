@@ -7,6 +7,7 @@ const targetAmount = 100000;
 // Elements
 
 const bookmarkEl = document.getElementById('bookmark-container');
+const bookmarkElMobile = document.getElementById('bookmark-icon-mobile');
 const radioBtnEls = document.querySelectorAll('input[type=radio]');
 const backProjectBtnEl = document.getElementById('back-project-btn');
 const closeBtnMdlEl = document.getElementById('close-modal-btn');
@@ -15,6 +16,8 @@ const modalOptionsEls = document.querySelectorAll('.modal .card');
 const pledgeAmountInEl = document.querySelectorAll('.accordion input');
 const contBtnEls = document.querySelectorAll('.accordion .btn');
 const confBtnEl = document.querySelector('.conf .btn');
+const hamburgerEl = document.getElementById('hamburger-icon');
+const navbarEls = document.querySelectorAll('#navbar li a');
 
 // Event Handler Functions
 
@@ -25,6 +28,10 @@ const bookmarkClickHandler = event => {
     } else {
         event.currentTarget.lastElementChild.innerText = 'Bookmark';
     }
+}
+
+const bookmarkMobileClickHandler = () => {
+    bookmarkElMobile.classList.toggle('marked');
 }
 
 const radioBtnClickHandler = () => {
@@ -65,6 +72,21 @@ const contBtnClickHanlder = event => {
     const element = event.currentTarget.parentElement;
     const amount = element.querySelector('input[type=number]').value
     updateUI(amount);
+}
+
+const hamburgerClickHandler = () => {
+    hamburgerEl.classList.toggle('close');
+    if (hamburgerEl.classList.contains('close')) {  
+        document.getElementById('overlay').classList.add('show');
+        document.getElementById('navbar').classList.add('show');
+    } else {
+        document.getElementById('overlay').classList.remove('show');
+        document.getElementById('navbar').classList.remove('show');
+    }
+}
+
+const navbarClickHandler = () => {
+    hamburgerEl.click();
 }
 
 // Helper Functions
@@ -123,10 +145,16 @@ for (const el of modalOptionsEls) {
     })
 }
 
+for (const el of navbarEls) {
+    el.addEventListener('click', navbarClickHandler);
+}
+
 bookmarkEl.addEventListener('click', bookmarkClickHandler);
+bookmarkElMobile.addEventListener('click', bookmarkMobileClickHandler);
 backProjectBtnEl.addEventListener('click', backProjectClickHandler);
 closeBtnMdlEl.addEventListener('click', closeBtnMdlHandler);
 confBtnEl.addEventListener('click', confBtnClickHandler);
+hamburgerEl.addEventListener('click', hamburgerClickHandler);
 
 // On Init
 updateUI();

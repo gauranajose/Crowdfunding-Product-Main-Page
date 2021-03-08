@@ -1,3 +1,7 @@
+:root {
+    --width-card: 730px;
+}
+
 * {
     box-sizing: border-box;
     padding: 0;
@@ -91,26 +95,20 @@ p {
     display: flex !important;
 }
 
+.close {
+    background: url('/images/icon-close-menu.svg') no-repeat center center !important;
+}
+
 /* Header */
 header {
     background: url('images/image-hero-desktop.jpg') no-repeat center center;
+    box-shadow:inset 0 0 0 2000px rgba(0, 0, 0, 0.3);
     background-size: 100% 100%;
     height: 45vh;
     display: flex;
     justify-content: center;
     align-items: flex-start;
     position: relative;
-}
-
-nav:before {
-    position: absolute;
-    content: '';
-    background: rgba(0, 0, 0, 0.2);
-    height: 100%;
-    width: 100%;
-    z-index: -1;
-    top: 0;
-    left: 0;
 }
 
 nav {
@@ -127,13 +125,23 @@ nav {
 }
 
 #navbar li {
-    margin-left: 30px;
+    padding-left: 30px;
     font-size: 14px;
+}
+
+#navbar li a {
+    width: 100%;
+}
+
+#hamburger-icon {
+    display: none;
+    height: 20px;
+    width: 20px;
 }
 
 /* Main Container */
 main {
-    width: 730px;
+    width: var(--width-card);
     align-self: center;
     z-index: 5;
     position: relative;
@@ -193,8 +201,17 @@ main {
     color: #157A74;
 }
 
-#bookmark-container.marked > #bookmark-icon {
+#bookmark-container.marked > #bookmark-icon,
+#bookmark-icon-mobile.marked {
     background: url('images/icon-bookmark-active.svg') center center;
+    background-size: 100% 100%;
+}
+
+#bookmark-icon-mobile {
+    display: none;
+    height: 50px;
+    width: 50px;
+    background: url('images/icon-bookmark.svg') center center;
     background-size: 100% 100%;
 }
 
@@ -258,7 +275,7 @@ main {
     margin-top: 30px;
 }
 
-.options .card h1 {
+#get-started .options .card h1 {
     display: flex;
     align-items: center;
 }
@@ -276,7 +293,7 @@ main {
 
 /* Modal */
 .modal {
-    width: 730px;
+    width: var(--width-card);
     align-self: center;
     position: fixed;
     top: 10vh;
@@ -324,6 +341,7 @@ main {
 .modal .options .wrapper .content {
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .modal .options .wrapper .content > div {
@@ -341,7 +359,7 @@ main {
     font-size: 18px;
 }
 
-.modal .options .wrapper .content > div h1 {
+.modal .options .wrapper .content  h1 {
     position: absolute;
     top: 0;
     right: 0;
@@ -495,4 +513,199 @@ main {
     position: absolute;
     z-index: 20;
     display: none;
+}
+
+/* Media Queries */
+@media(max-width: 760px) {
+    :root {
+        --width-card: 340px
+    }
+
+    h1 {
+        font-size: 28px;
+        text-align: center;
+    }
+
+    h2 {
+        font-size: 18px;
+    }
+
+    h3, h4 {
+        font-size: 16px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .card {
+        padding: 25px;
+    }
+
+    header {
+        background: url('images/image-hero-mobile.jpg') no-repeat center center;
+        background-size: 100% 100%;
+    }
+
+    nav {
+        width: 100%;
+        padding: 0 20px;
+        z-index: 50;
+    }
+
+    #navbar {
+        position: fixed;
+        flex-direction: column;
+        width: var(--width-card);
+        background: #fff;
+        border-radius: 10px;
+        border: 2px solid #F4F4F4;
+        left: 50%;
+        transform: translateX(-50%);
+        top: 110px;
+        display: none;
+    }
+
+    #navbar li {
+        padding: 0;
+    }
+
+    #navbar li + li {
+        border-top: 1px solid #7c7c7c69;
+    }
+
+    #navbar li a {
+        color: #000;
+        font-weight: 600;
+        font-size: 18px;
+        display: block;
+        width: 100%;
+        padding: 20px 20px;
+    }
+
+    #hamburger-icon {
+        display: block;
+        background: url('images/icon-hamburger.svg') no-repeat center center;
+        background-size: 100% 100%;
+        cursor: pointer;
+    }
+
+    #about h1 {
+        font-size: 24px;
+    }
+
+    #about p {
+        text-align: center;
+    }
+
+    #about .btn {
+        width: 220px;
+        text-align: center;
+    }
+
+    #bookmark-container {
+        display: none;
+    }
+
+    #bookmark-icon-mobile {
+        display: block;
+        cursor: pointer;
+    }
+
+    #progress-numbers {
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 5px;
+    }
+
+    #progress-numbers li {
+        width: 100%;
+        border-left: none;
+        text-align: center;
+        margin-bottom: 20px;
+        padding-top: 20px;
+        position: relative;
+    }
+
+    #progress-numbers li:after {
+        content: '';
+        position: absolute;
+        height: 1px;
+        width: 30%;
+        background: #7c7c7c69;
+        left: 50%;
+        top: 0;
+        transform: translateX(-50%);
+    }
+
+    #progress-numbers li:first-child:after {
+        display: none;
+    }
+
+    #progress-numbers li:first-child {
+        padding: 0;
+    }
+
+    #progress-numbers li h1 {
+        padding-bottom: 10px;
+    }
+
+    #get-started .card > div {
+        flex-direction: column;
+        align-items: flex-start !important;
+    }
+    
+    #get-started h3,
+    #get-started h1 {
+        margin-bottom: 15px;
+    }
+
+    .modal .options .wrapper .content > div {
+        flex-direction: column;
+        margin-left: 40px;
+        justify-content: center;
+        height: 34px;
+    }
+
+    .radio-container {
+        position: absolute;
+        top: 37px;
+    }
+
+    .modal .options .wrapper .content > div h3,
+    .modal .options .wrapper .content > div h4 {
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .modal .options .card + li .wrapper .content p {
+        padding-bottom: 40px;
+    }
+
+    .modal .options .wrapper .content h1 {
+        top: auto;
+        right: auto;
+        left: 0;
+        bottom: 0;
+    }
+
+    .modal .options .card .accordion > p {
+        position: absolute;
+        top: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .modal .options .card .accordion {
+        justify-content: center;
+        padding-top: 50px;
+    }
+
+    .conf {
+        width: var(--width-card);
+    }
+
+    .conf p {
+        text-align: center;
+    }
 }
